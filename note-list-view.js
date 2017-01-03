@@ -1,6 +1,6 @@
 (function(exports){
-  function NoteListHTML(){
-    this.noteList = new NoteList();
+  function NoteListHTML(noteList){
+    this.noteList = noteList;
   };
     NoteListHTML.prototype.view = function(){
       var string = "<ul>"
@@ -8,10 +8,6 @@
         string += "<li>" + this.noteList.notes[i].text + "</li>"
       }
       return string + "</ul>";
-    }
-
-    NoteListHTML.prototype.addNote = function(note) {
-      this.noteList.add(note);
     }
   exports.NoteListHTML = NoteListHTML;
 })(this);
