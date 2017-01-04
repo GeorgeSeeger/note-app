@@ -9,18 +9,14 @@ function testInnerAppElement() {
   var notecontroller = new NoteController();
   notecontroller.newNote('Favourite Drink: seltzer');
   notecontroller.showNotes();
-  if(document.getElementById('app').innerHTML !== '<ul><li><a id="click-link-0" href="#notes/0">Favourite Drink: sel</a></li></ul>') {
-    throw new Error("InnerHTML was not changed correctly");
-  }
+  assert.isTrue(document.getElementById('app').innerHTML === '<ul><li><a id="click-link-0" href="#notes/0">Favourite Drink: sel</a></li></ul>');
 };
 
 function testAddFavourite() {
   var noteController = new NoteController();
   noteController.newNote('Favourite Drink: seltzer');
 
-  if(noteController.notelist.list[0].text !== "Favourite Drink: seltzer"){
-    throw new Error("Add Favourite drink function not working");
-  }
+  assert.isTrue(noteController.notelist.list[0].text === "Favourite Drink: seltzer");
 };
 
 testControllerCanBeInstantiated();

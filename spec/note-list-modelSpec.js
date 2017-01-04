@@ -1,9 +1,7 @@
 function testListIsEmptyArray() {
   var notelist = new NoteList();
 
-  if(notelist.list.length !== 0) {
-    throw new Error("Notes array is not empty");
-  }
+  assert.isTrue(notelist.list.length === 0)
 
 };
 
@@ -12,9 +10,7 @@ function testCanAddNoteToList(){
   var note = { text: "firstnote" };
   notelist.storeNote(note);
 
-  if (notelist.list[0] !== note){
-    throw new Error("Notelist array not storing new entries");
-  }
+  assert.isTrue(notelist.list[0] === note)
 };
 
 function testListReturnsMultipleNotes() {
@@ -24,9 +20,7 @@ function testListReturnsMultipleNotes() {
   notelist.storeNote(note1);
   notelist.storeNote(note2);
 
-  if (notelist.list[1] !== note2){
-    throw new Error("Notelist array not storing multiple entries");
-  }
+  assert.isTrue(notelist.list[1] === note2)
 };
 
 function testShowListReturnsMultipleNotes() {
@@ -36,9 +30,7 @@ function testShowListReturnsMultipleNotes() {
   notelist.storeNote(note1);
   notelist.storeNote(note2);
 
-  if (notelist.showList() !== notelist.list){
-    throw new Error("Notelist array not showing multiple entries");
-  }
+  assert.isTrue(notelist.showList() === notelist.list)
 };
 
 
@@ -48,9 +40,7 @@ function testStoreNoteSavesNoteId() {
   var note2 = { text: "secondnote" };
   notelist.storeNote(note1);
   notelist.storeNote(note2);
-  if (notelist.list[1].id !== 1 && notelist.list[0].id !== 0){
-    throw new Error('store note is not saving note id')
-  }
+  assert.isTrue(notelist.list[1].id === 1 && notelist.list[0].id === 0)
 }
 
 
