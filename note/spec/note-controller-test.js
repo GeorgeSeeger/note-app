@@ -27,3 +27,10 @@
   document.getElementById('link-0').click();
   assert.isTrue(noteController.getIdFromURL() === '0');
 })();
+
+(function testGetNote(){
+  var noteList  = new NoteList();
+  var noteController = new NoteController(noteList);
+  noteController.addFavourite();
+  assert.isTrue(noteController.getNote(0).readNote() === "favourite drink: beer");
+})();

@@ -23,6 +23,10 @@
     return window.location.hash.split("/")[1];
   };
 
+  NoteController.prototype.getNote = function(id){
+    return this.noteList.seeList()[id];
+  }
+
   exports.NoteController = NoteController;
 
 })(this);
