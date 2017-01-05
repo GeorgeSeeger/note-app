@@ -10,6 +10,7 @@
   };
 
   NoteList.prototype.saveNote = function(note) {
+    note.id = this._list.length;
     this._list.push(note)
   };
 
