@@ -4,5 +4,7 @@ window.onload = function(){
   controller.addFavourite();
   controller.insertHTML();
 
-  controller.makeUrlChangeShowNoteForCurrentPage();
+  window.addEventListener("hashchange", function(){
+    controller.showNote();
+  });
 };

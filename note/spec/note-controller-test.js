@@ -9,7 +9,7 @@
   var noteList  = new NoteList();
   var noteController = new NoteController(noteList);
   noteController.addFavourite();
-  var string = "<ul><li><div><a href='#notes/0'>favourite drink: bee</a></div></li></ul>";
+  var string = "<ul><li><div><a id='link-0' href='#notes/0'>favourite drink: bee</a></div></li></ul>";
   var elementDouble = {innerHTML: ""};
   noteController.getElement = function() {
     return elementDouble;
@@ -19,14 +19,11 @@
   console.log("Controller can insert HTML")
 })();
 
-// (function testListenHashChange(){
-//   var noteList  = new NoteList();
-//   var noteController = new NoteController(noteList);
-//
-//   var elementDouble = {innerHTML: ""};
-//   noteController.getElement = function() {
-//     return elementDouble;
-//   }
-//
-//   assert.isTrue( === )
-// })();
+(function testgetIdFromURL(){
+  var noteList  = new NoteList();
+  var noteController = new NoteController(noteList);
+  noteController.addFavourite();
+  noteController.insertHTML();
+  document.getElementById('link-0').click();
+  assert.isTrue(noteController.getIdFromURL() === '0');
+})();
