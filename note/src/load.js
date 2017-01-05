@@ -5,6 +5,6 @@ window.onload = function(){
   controller.insertHTML();
 
   window.addEventListener("hashchange", function(){
-    controller.showNote();
+    controller.displaySingleNote(controller.getIdFromURL());
   });
 };
