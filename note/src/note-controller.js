@@ -2,13 +2,15 @@
 
   function NoteController(noteList){
     this.noteList = noteList;
-    var note = new Note("favourite drink: beer");
-    noteList.saveNote(note);
-    this.listView = new NoteListView(noteList);
   };
 
+  NoteController.prototype.addFavourite = function(){
+    var note = new Note("favourite drink: beer");
+    this.noteList.saveNote(note);
+  }
+
   NoteController.prototype.insertHTML = function(){
-    var html = this.listView.displayHTML();
+    var html = new NoteListView(this.noteList).displayHTML();
     var element = this.getElement();
     element.innerHTML = html;
   };

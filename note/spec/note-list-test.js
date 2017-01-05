@@ -8,7 +8,7 @@ function testNewListCreated() {
 
 function testNoteIsInList() {
   var list = new NoteList();
-  var note = new Note('yo');
+  var note = {readNote: "Yoko"};
   list.saveNote(note);
   assert.isTrue(list.seeList().length === 1)
   console.log("This returned: " + list.seeList());
