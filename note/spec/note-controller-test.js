@@ -19,6 +19,14 @@
   console.log("Controller can insert HTML")
 })();
 
-// (function testloadNoteURLS(){
+// (function testListenHashChange(){
+//   var noteList  = new NoteList();
+//   var noteController = new NoteController(noteList);
 //
+//   var elementDouble = {innerHTML: ""};
+//   noteController.getElement = function() {
+//     return elementDouble;
+//   }
+//
+//   assert.isTrue( === )
 // })();

@@ -3,4 +3,6 @@ window.onload = function(){
   var controller = new NoteController(list);
   controller.addFavourite();
   controller.insertHTML();
+
+  controller.makeUrlChangeShowNoteForCurrentPage();
 };
