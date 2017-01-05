@@ -10,7 +10,7 @@ window.onload = function(){
 
   window.addEventListener('submit', function(submitEvent){
     submitEvent.preventDefault();
-    console.log(submitEvent);
+    console.log(submitEvent.srcElement[0].value);
   });
 
 };
