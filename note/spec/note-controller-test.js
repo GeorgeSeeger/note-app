@@ -8,7 +8,7 @@
 (function testControllerInsertHTML(){
   var noteList  = new NoteList();
   var noteController = new NoteController(noteList);
-  noteController.addFavourite();
+  noteController.newNote("favourite drink: beer");
   var string = "<ul><li><div><a id='link-0' href='#notes/0'>favourite drink: bee</a></div></li></ul>";
   var elementDouble = {innerHTML: ""};
   noteController.getElement = function() {
@@ -22,7 +22,7 @@
 (function testgetIdFromURL(){
   var noteList  = new NoteList();
   var noteController = new NoteController(noteList);
-  noteController.addFavourite();
+  noteController.newNote("favourite drink: beer");
   noteController.insertHTML();
   document.getElementById('link-0').click();
   assert.isTrue(noteController.getIdFromURL() === '0');
@@ -31,18 +31,19 @@
 (function testGetNote(){
   var noteList  = new NoteList();
   var noteController = new NoteController(noteList);
-  noteController.addFavourite();
+  noteController.newNote("favourite drink: beer");
   assert.isTrue(noteController.getNote(0).readNote() === "favourite drink: beer");
 })();
 
 (function testChangePageHMTL(){
   var noteList  = new NoteList();
   var noteController = new NoteController(noteList);
-  noteController.addFavourite();
+  noteController.newNote("favourite drink: beer");
   var elementDouble = {innerHTML: ""};
   noteController.getElement = function() {
     return elementDouble;
   }
   noteController.displaySingleNote(0);
-  assert.isTrue(elementDouble.innerHTML === "favourite drink: beer");
+  console.log(elementDouble.innerHTML);
+  assert.isTrue(elementDouble.innerHTML === "<div>favourite drink: beer</div>");
 })();

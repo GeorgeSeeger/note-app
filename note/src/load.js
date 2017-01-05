@@ -1,16 +1,21 @@
 window.onload = function(){
   var list = new NoteList;
   var controller = new NoteController(list);
-  controller.addFavourite();
   controller.insertHTML();
 
   window.addEventListener("hashchange", function(){
     controller.displaySingleNote(controller.getIdFromURL());
   });
 
+  document.getElementById('return').addEventListener('click', function(clickEvent){
+    controller.insertHTML();
+  });
+
   window.addEventListener('submit', function(submitEvent){
     submitEvent.preventDefault();
-    console.log(submitEvent.srcElement[0].value);
+    controller.newNote(submitEvent.srcElement[0].value);
+    document.getElementById("text").value = "";
+    controller.insertHTML();
   });
 
 };

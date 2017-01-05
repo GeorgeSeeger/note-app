@@ -4,8 +4,8 @@
     this.noteList = noteList;
   };
 
-  NoteController.prototype.addFavourite = function(){
-    var note = new Note("favourite drink: beer");
+  NoteController.prototype.newNote = function(string){
+    var note = new Note(string);
     this.noteList.saveNote(note);
   };
 
@@ -28,7 +28,7 @@
   }
 
   NoteController.prototype.displaySingleNote = function(id){
-    this.getElement().innerHTML = this.getNote(id).readNote();
+    this.getElement().innerHTML = new NoteView(this.getNote(id)).displayHTML();
   };
 
   exports.NoteController = NoteController;
