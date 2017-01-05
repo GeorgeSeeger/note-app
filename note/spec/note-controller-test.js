@@ -34,3 +34,15 @@
   noteController.addFavourite();
   assert.isTrue(noteController.getNote(0).readNote() === "favourite drink: beer");
 })();
+
+(function testChangePageHMTL(){
+  var noteList  = new NoteList();
+  var noteController = new NoteController(noteList);
+  noteController.addFavourite();
+  var elementDouble = {innerHTML: ""};
+  noteController.getElement = function() {
+    return elementDouble;
+  }
+  noteController.displaySingleNote(0);
+  assert.isTrue(elementDouble.innerHTML === "favourite drink: beer");
+})();

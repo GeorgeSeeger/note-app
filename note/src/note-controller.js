@@ -27,6 +27,10 @@
     return this.noteList.seeList()[id];
   }
 
+  NoteController.prototype.displaySingleNote = function(id){
+    this.getElement().innerHTML = this.getNote(id).readNote();
+  };
+
   exports.NoteController = NoteController;
 
 })(this);
